@@ -82,17 +82,16 @@ public class LogIngestor implements Runnable {
     // see if this is a nested json message, parse and add
     jsonNode.fields().forEachRemaining(entry -> {
       String field = entry.getKey();
-      JsonNode valueNode = entry.getValue();
+      JsonNode value = entry.getValue();
       try {
-        JsonNode innerJsonNode = mapper.readTree(valueNode.asText());
+        JsonNode innerJsonNode = mapper.readTree(value.asText());
+        point.addField(field, value.asText());
         innerJsonNode.fields().forEachRemaining(nestedField -> {
           point.addField(field + '_' + nestedField.getKey(), nestedField.getValue().asText());
         });
 
-        // add the complete json field as well
-        point.addField(field, valueNode.asText());
       } catch (Exception e) {
-        point.addField(field, valueNode.asText());
+        point.addField(field, value.asText());
       }
     });
 
