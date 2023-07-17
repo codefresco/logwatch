@@ -28,6 +28,12 @@ While developing inside the container (running the dev profile), the `log-genera
 
 For example: made some changes and ran `./gradlew bootRun` in the container, run the `log-generator` on the host to send some logs to the application.
 
+## Endpoints
+
+Either explore in localhost:8086 (InfluxDB UI) or curl the following endpoints:
+- `GET localhost:8080/recent?count=10` Returns 10 recent logs recorded
+- `GET localhost:8080/recent?count=100` Returns 100 recent request latencies recorded
+
 ## Work in progress
 
 Add a react front end to set up aggregate queries and cool things :cowboy_hat_face:

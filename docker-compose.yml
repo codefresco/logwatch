@@ -65,7 +65,7 @@ services:
 
   log-generator:
     container_name: log-generator
-    image: hamidtarmazdi/log-generator:latest
+    image: hamidtarmazdi/log-generator:1
     depends_on:
       ingestor:
         condition: service_healthy
