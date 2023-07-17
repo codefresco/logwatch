@@ -75,7 +75,6 @@ services:
         gelf-address: udp://127.0.0.1:12201
     profiles:
       - staging
-      - manual
     networks:
       - shared_network
 
