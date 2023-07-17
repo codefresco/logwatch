@@ -13,13 +13,13 @@ public class InfluxDBConfig {
   @Value("${INFLUXDB_URL}")
   private String influxDbUrl;
 
-  @Value("${INFLUXDB_TOKEN}")
+  @Value("${DOCKER_INFLUXDB_INIT_ADMIN_TOKEN}")
   private String influxDbToken;
 
-  @Value("${INFLUXDB_ORG}")
+  @Value("${DOCKER_INFLUXDB_INIT_ORG}")
   public String influxDbOrg;
 
-  @Value("${INFLUXDB_BUCKET}")
+  @Value("${DOCKER_INFLUXDB_INIT_BUCKET}")
   public String influxDbBucket;
 
   @Bean
